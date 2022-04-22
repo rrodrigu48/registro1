@@ -1,14 +1,16 @@
 import React from "react";
+import { nanoid } from "nanoid";
 
 const Formulario = () => {
     const [fruta, setFruta] = React.useState('')
     const [descripcion, setDescripcion] = React.useState('')
     const [cantidad, setCantidad] = React.useState('')
     const [lista, setLista] = React.useState([])
+    const [id,setId] = React.useState('')
     
     const guardarDatos = (e) =>{
         e.preventDefault()
-// validar si los campos estan vacios
+        
         if(!fruta.trim()){
             return alert ('Campo fruta vacio')
         }
@@ -18,12 +20,13 @@ const Formulario = () => {
         if(!cantidad.trim()){
             return alert ('Campo cantidad vacio')
         }
-//////
+
         setLista ([... lista,
             {nombreFruta: fruta, nombreDescripcion: descripcion, nombreCantidad: cantidad}
 
         ])
     }
+    
     return(
         <div className='container mt -5'>
             <h1 className='text-center'>Crud basico</h1>
@@ -35,7 +38,7 @@ const Formulario = () => {
                     <ul className="list-group">
                     {
                     lista.map((item, index) =>(
-                        <li classname='list-group-item' key={index}>
+                        <li className='list-group-item' key={index}>
                             <span className="lead">{item.nombreFruta} - {item.nombreDescripcion} - {item.nombreCantidad}</span> 
                             <button className="btn btn-danger btn-sm float-end mx-2">Eliminar</button>
                             <button className="btn btn-warning btn-sm float-end ">Editar</button>
@@ -67,11 +70,11 @@ const Formulario = () => {
                          onChange={(e) => setCantidad(e.target.value)}
                        />
 
-                <button className="btn btn-primary" type = 'submin'>Agregar</button>
+                <button className="btn btn-primary btn-block" type = 'submin'>Agregar</button>
             </form>
         </div>
     </div>
 </div>
-    )
+)
 }
 export default Formulario

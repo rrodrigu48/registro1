@@ -4,14 +4,12 @@ const Formulario = () => {
     const [fruta, setFruta] = React.useState('')
     const [descripcion, setDescripcion] = React.useState('')
     const [lista, setLista] = React.useState([])
-
     const guardarDatos = (e) =>{
         e.preventDefault()
 // validar si los campos estan vacios
         if(!fruta.trim()){
             return alert ('Campo fruta vacio')
         }
-
         if(!descripcion.trim()){
             return alert ('Campo descripcion vacio')
         }
@@ -21,8 +19,6 @@ const Formulario = () => {
 
         ])
     }
-
-
     return(
         <>
             <h2>Formulario</h2>
@@ -54,5 +50,4 @@ const Formulario = () => {
 
     )
 }
-
 export default Formulario
